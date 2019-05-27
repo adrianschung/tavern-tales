@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TavernTales</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h3 style='display:inline-block'><%= link_to 'Tavern Tales', root_path %></h3>
+    <h3 style='display:inline-block'><%= link_to 'Maps', maps_path %></h3>
+    <%= yield %>
+  </body>
+</html>

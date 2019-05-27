@@ -1,0 +1,9 @@
+<h3>New Map</h3>
+<%= form_for @map, url: {action: "create"} do |f| %>
+  <p>Name: <%= f.text_field :name %></p>
+  <p>
+    Description:
+    <br />
+    <%= f.text_area :description, size: "60x12" %></p>
+  <p><%= f.submit "Create" %></p>
+<% end %>

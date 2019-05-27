@@ -1,4 +1,5 @@
 class MapsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @maps = Map.all
   end
@@ -12,7 +13,7 @@ class MapsController < ApplicationController
   end
 
   def create
-    @map = Map.create(map_params)
+    @map = current_user.maps.create(map_params)
     redirect_to maps_path
   end
 

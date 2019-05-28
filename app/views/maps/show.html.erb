@@ -1,2 +1,5 @@
-<h3><%= @map.name %></h3>
-<p><%= @map.description %></p>
+<h3><%= current_map.name %></h3>
+<p><%= current_map.description %></p>
+<% if owned?(current_map) %>
+  <%= link_to 'Edit map', edit_map_path(current_map) %>
+<% end %>

@@ -5,7 +5,6 @@ class MapsController < ApplicationController
   end
 
   def show
-    @map = Map.find(params[:id])
   end
 
   def new
@@ -19,14 +18,30 @@ class MapsController < ApplicationController
 
   def edit
     @map = Map.find(params[:id])
+    if current_user != current_map.user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+  end
 
   def update
-    @map = Map.find(params[:id])
-    return unless owned?(@map)
-    @map.update_attributes(map_params)
+    if current_user != current_map.user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+    current_map.update_attributes(map_params)
+    if current_map.valid?
+      redirect_to maps_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
+  
+  helper_method :current_map
+
+  def current_map
+    @map ||= Map.find(params[:id])
+  end
 
   def map_params
     params.require(:map).permit(:name, :description)

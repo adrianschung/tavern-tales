@@ -1,5 +1,5 @@
 <h3>Edit Map</h3>
-<%= form_for @map, url: {action: "update"} do |f| %>
+<%= form_for current_map, url: {action: "update"} do |f| %>
   <p>Name: <%= f.text_field :name %></p>
   <p>
     Description:

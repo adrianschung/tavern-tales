@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   def index
     @maps = Map.all
   end
@@ -15,6 +15,15 @@ class MapsController < ApplicationController
   def create
     @map = current_user.maps.create(map_params)
     redirect_to maps_path
+  end
+
+  def edit
+    @map = Map.find(params[:id])
+
+  def update
+    @map = Map.find(params[:id])
+    return unless owned?(@map)
+    @map.update_attributes(map_params)
   end
 
   private

@@ -1,0 +1,9 @@
+<h3><%= @user.username %><h3>
+<h4>Uploaded Maps</h4>
+<% if @user.maps %>
+  <% @user.maps.each do |map| %>
+    <%= link_to map.name, map_path(map) %>
+  <% end %>
+<% else %>
+  <p>No maps yet.</p>
+<% end %>

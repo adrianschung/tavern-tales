@@ -1,6 +1,7 @@
 <h3><%= current_map.name %></h3>
-<p>Created by: <%= current_map.user.email%>
-<p><%= current_map.description %></p>
+<p>Created by: <%= current_map.user.username%>
+<h3>Description</h3>
+  <p><%= current_map.description %></p>
 <% if current_map.user == current_user %>
   <%= link_to 'Edit map', edit_map_path(current_map) %>
 <% end %>

@@ -1,0 +1,24 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/maps_controller.rb'
+
+Style/SafeNavigation:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/SymbolArray:
+  EnforcedStyle: brackets

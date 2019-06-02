@@ -25,11 +25,11 @@
             <a class="nav-link" href="/maps">Maps</a>
           </li>
           <% if current_user %>
-            <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' %>">
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-            </li>
-            <li class="nav-item <%= 'active' if params[:controller] == 'user' %>">
+            <li class="nav-item <%= 'active' if params[:controller] == 'users' %>">
               <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' %>">
@@ -44,12 +44,12 @@
       </div>
     </nav>
     <% if notice.present? %>
-      <div class="alert alert-primary" role="alert">
+      <div class="alert alert-primary" style="text-align: center" role="alert">
         <%= notice %>
       </div>
     <% end %>
     <% if alert.present? %>
-      <div class="alert alert-danger" role="alert">
+      <div class="alert alert-danger" style="text-align: center" role="alert">
         <%= alert %>
       </div>
     <% end %>

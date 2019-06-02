@@ -10,15 +10,39 @@
   </head>
 
   <body>
-    <h3 style='display:inline-block'><%= link_to 'Tavern Tales', root_path %></h3>
-    <h3 style='display:inline-block'><%= link_to 'Maps', maps_path %></h3>
-    <% if current_user %>
-      <h3 style='display:inline-block; float:right'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></h3>
-      <h3 style='display:inline-block; float:right; margin-right: 10px'><%= link_to 'My Profile', user_path(current_user) %></h3>
-    <% else %>
-      <h3 style='display:inline-block; float:right'><%= link_to 'Sign Up', new_user_registration_path %></h3>
-      <h3 style='display:inline-block; float:right; margin-right: 10px'><%= link_to 'Sign In', new_user_session_path %></h3>
-    <% end %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">TavernTales</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/maps">Maps</a>
+          </li>
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

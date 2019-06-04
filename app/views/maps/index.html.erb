@@ -1,7 +1,4 @@
 <h4><%= link_to 'New map', new_map_path %></h4>
 
 <h3>Maps</h3>
-<% @maps.each do |map| %>
-  <%= link_to map.name, map_path(map) %>
-  <br />
-<% end %>
+<%= render partial: 'maps', locals: { maps: @maps } %>

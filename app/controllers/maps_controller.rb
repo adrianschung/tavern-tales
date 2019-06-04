@@ -38,6 +38,14 @@ class MapsController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present?
+      @maps = Map.tagged_with(params[:tag])
+    else
+      @maps = Map.all
+    end
+  end
+
   private
 
   helper_method :current_map
@@ -47,6 +55,6 @@ class MapsController < ApplicationController
   end
 
   def map_params
-    params.require(:map).permit(:name, :description, :picture)
+    params.require(:map).permit(:name, :description, :picture, :tag_list)
   end
 end

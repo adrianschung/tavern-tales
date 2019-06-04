@@ -10,6 +10,11 @@
 </div>
 
 <div class="field">
+  <%= f.label :tag_list, "Tags (separate by comma):" %>
+  <%= f.text_field :tag_list, value: current_map.tag_list.to_s %>
+</div>
+
+<div class="field">
   <%= f.label :picture %>:
   <%= f.file_field :picture %>    
 </div>

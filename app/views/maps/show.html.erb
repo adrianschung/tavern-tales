@@ -13,4 +13,8 @@
   </p>
   <h3>Description</h3>
   <p><%= current_map.description %></p>
+  <h3>Tags</h3>
+  <% current_map.tag_list.each do |tag| %>
+    <span class="badge badge-primary" style="background-color: #355940"><%= tag %></span>
+  <% end %>
 </div>

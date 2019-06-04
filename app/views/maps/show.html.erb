@@ -9,7 +9,7 @@
   Created by: <%= current_map.user.username%>
   <br />
   <p style="text-align:center">
-    <%= image_tag current_map.picture.preview.url %>
+    <%= link_to image_tag(current_map.picture.preview.url), current_map.picture.url, id: "picture" %>
   </p>
   <h3>Description</h3>
   <p><%= current_map.description %></p>

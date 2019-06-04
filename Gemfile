@@ -66,6 +66,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'fancybox-rails'
+gem 'figaro'
+gem 'fog-aws'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'rubocop-rails', require: false

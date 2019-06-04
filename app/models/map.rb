@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
 class Map < ApplicationRecord
   belongs_to :user
-  has_many :photos
+  mount_uploader :picture, PictureUploader
 end

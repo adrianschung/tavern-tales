@@ -14,7 +14,7 @@ class MapsController < ApplicationController
 
   def create
     @map = current_user.maps.create(map_params)
-    redirect_to maps_path
+    redirect_to map_path(current_map)
   end
 
   def edit
@@ -32,7 +32,7 @@ class MapsController < ApplicationController
     end
     current_map.update_attributes(map_params)
     if current_map.valid?
-      redirect_to maps_path
+      redirect_to map_path(current_map)
     else
       render :edit, status: :unprocessable_entity
     end

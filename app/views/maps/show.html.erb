@@ -1,7 +1,16 @@
-<h3><%= current_map.name %></h3>
-<p>Created by: <%= current_map.user.username%>
-<h3>Description</h3>
+<br />
+<div class="container col-6">
+  <div class="row">
+    <h3 class="col-10"><%= current_map.name %></h3>
+    <% if current_map.user == current_user %>
+      <%= link_to 'Edit map', edit_map_path(current_map), class:'btn btn-secondary' %>
+    <% end %>
+  </div>
+  Created by: <%= current_map.user.username%>
+  <br />
+  <p style="text-align:center">
+    <%= image_tag current_map.picture.preview.url %>
+  </p>
+  <h3>Description</h3>
   <p><%= current_map.description %></p>
-<% if current_map.user == current_user %>
-  <%= link_to 'Edit map', edit_map_path(current_map) %>
-<% end %>
+</div>

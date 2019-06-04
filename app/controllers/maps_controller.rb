@@ -14,7 +14,7 @@ class MapsController < ApplicationController
 
   def create
     @map = current_user.maps.create(map_params)
-    redirect_to map_path(current_map)
+    redirect_to map_path(@map)
   end
 
   def edit

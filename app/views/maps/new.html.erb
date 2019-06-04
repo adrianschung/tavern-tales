@@ -1,3 +1,6 @@
-<h3>New Map</h3>
-<%= form_for @map, html: { multipart: true } do |form| %>
-  <%= render partial: 'form', locals: { f: form } %>
+<div class="container col-5">
+  <h3>New Map</h3>
+  <%= form_for @map, html: { multipart: true } do |form| %>
+    <%= render partial: 'form', locals: { f: form, action: "new" } %>
+  <% end %>
+</div>

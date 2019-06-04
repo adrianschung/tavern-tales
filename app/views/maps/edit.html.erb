@@ -1,4 +1,4 @@
 <h3>Edit Map</h3>
 <%= form_for @map, url: { action: "update" }, html: { multipart: true } do |form| %>
-  <%= render partial: 'form', locals: { f: form } %>
+  <%= render partial: 'form', locals: { f: form, action: "edit" } %>
 <% end %>

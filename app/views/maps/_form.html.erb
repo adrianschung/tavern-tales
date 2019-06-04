@@ -1,19 +1,24 @@
 <div class="field">
-  <%= f.label :name %>
+  <%= f.label :name %>:
   <%= f.text_field :name %>
 </div>
 
-<div class="field">
+<div class="field">:
   <%= f.label :description %>
   <br />
   <%= f.text_area :description, size: "60x12" %>
 </div>
 
-<div class="field">
+<div class="field">:
   <%= f.label :picture %>
   <%= f.file_field :picture %>    
 </div>
 
 <div class="actions">
-  <%= f.submit "Save", class: "btn btn-dark", style:"background-color: #355940" %>
+  <%= f.submit "Save", class: "btn btn-secondary" %>
+  <% if action == "new" %>
+    <%= link_to "Cancel", maps_path, class: "btn btn-warning" %>
+  <% elsif action == "edit" %>
+    <%= link_to "Cancel", map_path(current_map), class: "btn btn-warning" %>
+  <% end %>
 </div>

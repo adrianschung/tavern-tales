@@ -25,10 +25,10 @@
             <a class="nav-link" href="/maps">Maps</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <%= form_for search_path, method: :get, url: { controller: "search", action: "search" }, html: { class:"form-inline my-2 my-lg-0"} do |f| %>
+          <%= text_field_tag :q, params[:q], class:"form-control mr-sm-2", placeholder: "Search" %>
+          <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0", name: nil %>
+        <% end %>
         <ul class="navbar-nav">
           <% if current_user %>
             <li class="nav-item <%= 'active' if params[:controller] == 'users' %>">

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'elasticsearch/model'
 
 class User < ApplicationRecord
   attr_writer :login
@@ -9,6 +10,15 @@ class User < ApplicationRecord
   has_many :maps
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
+  
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  def as_indexed_json(options = {})
+    self.as_json(
+      only: [:id, :username]
+    )
+  end 
 
   def login
     @login || username || email
@@ -26,3 +36,4 @@ class User < ApplicationRecord
     end
   end
 end
+User.import

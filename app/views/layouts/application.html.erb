@@ -26,8 +26,8 @@
           </li>
         </ul>
         <%= form_for search_path, method: :get, url: { controller: "search", action: "search" }, html: { class:"form-inline my-2 my-lg-0"} do |f| %>
-          <%= text_field_tag :q, params[:q], class:"form-control mr-sm-2", placeholder: "Search" %>
-          <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0", name: nil %>
+          <%= text_field_tag :q, params[:q], class:"form-control mr-sm-2", placeholder: "Find a user" %>
+          <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0", name: nil %>
         <% end %>
         <ul class="navbar-nav">
           <% if current_user %>

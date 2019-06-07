@@ -1,12 +1,14 @@
-<h3><%= @user.username %><h3>
-<% if current_user == @user %>
-  <p><%= link_to 'Edit Profile', edit_user_registration_path %></p>
-<% end %>
-<h4>Uploaded Maps</h4>
-<% if @user.maps %>
-  <% @user.maps.each do |map| %>
-    <%= link_to map.name, map_path(map) %>
+<div class="container col-6">
+  <h3><%= @user.username %><h3>
+  <% if current_user == @user %>
+    <p><%= link_to 'Edit Profile', edit_user_registration_path %></p>
   <% end %>
-<% else %>
-  <p>No maps yet.</p>
-<% end %>
+  <h4>Uploaded Maps</h4>
+  <% if @user.maps %>
+    <% @user.maps.each do |map| %>
+      <%= link_to map.name, map_path(map) %>
+    <% end %>
+  <% else %>
+    <p>No maps yet.</p>
+  <% end %>
+</div>

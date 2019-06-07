@@ -2,11 +2,30 @@
   <h1>Welcome to Tavern Tales!</h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <% unless @recent_maps.empty? %>
-    <h3>Recent Maps</h3>
-    <div class="row justify-content-around">
+    <h2>Recent Maps</h2>
+    <div class="row justify-content-between">
       <% @recent_maps.each do |map| %>
-        <div class="container col-5">
-          <%= map.name %>
+        <div class="col-6 justify-content-center">
+          <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+            <div class="row">
+              <div class="col-8">
+                <h3><%= link_to map.name, map_path(map) %></h3>
+                by: <%= link_to map.user.username, user_path(map.user) %>
+                <br />
+                <% map.tag_list.first(3).each do |tag| %>
+                  <span class="badge badge-primary" style="background-color: #355940"><%= tag %></span>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= image_tag map.picture.thumb.url %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <%= map.description %>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>

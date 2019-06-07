@@ -10,39 +10,41 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #355940">
-      <%= link_to "TavernTales", root_path, class:"navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark " style="background-color: #355940">
+      <div class="container col-6">
+        <%= link_to "TavernTales", root_path, class:"navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item <%= 'active' if params[:controller] == 'static_pages' %>">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item <%= 'active' if params[:controller] == 'maps' %>">
-            <a class="nav-link" href="/maps">Maps</a>
-          </li>
-        </ul>
-        <%= form_for search_path, method: :get, url: { controller: "/search", action: "search" }, html: { class:"form-inline my-2 my-lg-0"} do |f| %>
-          <%= text_field_tag :q, params[:q], class:"form-control mr-sm-2", placeholder: "Find a user" %>
-          <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0", name: nil %>
-        <% end %>
-        <ul class="navbar-nav">
-          <% if current_user %>
-            <li class="nav-item <%= 'active' if params[:controller] == 'users' %>">
-              <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item <%= 'active' if params[:controller] == 'static_pages' %>">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            <li class="nav-item <%= 'active' if params[:controller] == 'maps' %>">
+              <a class="nav-link" href="/maps">Maps</a>
             </li>
-          <% else %>
-            <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' %>">
-              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-            </li>
+          </ul>
+          <%= form_for search_path, method: :get, url: { controller: "/search", action: "search" }, html: { class:"form-inline my-2 my-lg-0"} do |f| %>
+            <%= text_field_tag :q, params[:q], class:"form-control mr-sm-2", placeholder: "Find a user" %>
+            <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0", name: nil %>
           <% end %>
-        </ul>
+          <ul class="navbar-nav">
+            <% if current_user %>
+              <li class="nav-item <%= 'active' if params[:controller] == 'users' %>">
+                <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' %>">
+                <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </nav>
     <% if notice.present? %>

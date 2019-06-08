@@ -35,5 +35,23 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
+  settings analysis: {
+    filter: {
+      trigrams_filter: {
+        type: 'ngram', min_gram: 3, max_gram: 3
+      }
+    },
+    analyzer: {
+      trigrams: {
+        type: 'custom', tokenizer: 'standard', filter: ['lowercase', 'trigrams_filter']
+      }
+    }
+  } do
+    mapping do
+      indexes :username
+    end
+  end
 end
+User.__elasticsearch__.create_index! force: true
 User.import

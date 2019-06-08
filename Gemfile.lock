@@ -100,7 +100,7 @@ GEM
       elasticsearch-transport (= 7.1.0)
     elasticsearch-api (7.1.0)
       multi_json
-    elasticsearch-model (6.0.0)
+    elasticsearch-model (7.0.0.pre)
       activesupport (> 3)
       elasticsearch (> 1)
       hashie
@@ -317,7 +317,7 @@ DEPENDENCIES
   chromedriver-helper (= 1.2.0)
   coffee-rails (~> 4.2)
   devise
-  elasticsearch-model
+  elasticsearch-model (~> 7.0.0.pre)
   factory_bot_rails
   fancybox-rails
   figaro

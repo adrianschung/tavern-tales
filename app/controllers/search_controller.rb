@@ -3,7 +3,9 @@ class SearchController < ApplicationController
     @users = params[:q].nil? ? [] : User.search(
       query: {
         query_string: {
-          query: "*#{params[:q]}*"
+          default_operator: "AND",
+          analyzer: "trigrams",
+          query: "#{params[:q]}"
         }
       }
     ).results

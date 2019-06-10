@@ -6,5 +6,7 @@
         <%= link_to 'New map', new_map_path, class:'btn btn-secondary float-right' %>
       </div>
   </div>
-  <%= render partial: 'maps', locals: { maps: @maps } %>
+  <% @maps.each do %>
+    <%= render partial: 'map', locals: { map: map } %>
+  <% end %>
 </div>

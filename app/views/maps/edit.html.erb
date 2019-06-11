@@ -3,4 +3,5 @@
   <%= form_for @map, url: { action: "update" }, html: { multipart: true } do |form| %>
     <%= render partial: 'form', locals: { f: form, action: "edit" } %>
   <% end %>
+  <%= link_to 'Delete Map', map_path(current_map), class: "btn btn-danger", method: :delete %>
 </div>

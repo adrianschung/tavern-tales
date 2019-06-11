@@ -38,6 +38,11 @@ class MapsController < ApplicationController
     end
   end
 
+  def destroy
+    current_map.destroy
+    redirect_to maps_path
+  end
+
   def tagged
     if params[:tag].present?
       @maps = Map.tagged_with(params[:tag])

@@ -14,7 +14,13 @@ class MapsController < ApplicationController
 
   def create
     @map = current_user.maps.create(map_params)
-    redirect_to map_path(@map)
+    if @map.valid?
+      flash[:notice] = "Map successfully created"
+      redirect_to map_path(@map)
+    else
+      flash[:alert] = "Something went wrong - Try again later"
+      render :index, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -32,6 +38,7 @@ class MapsController < ApplicationController
     end
     current_map.update_attributes(map_params)
     if current_map.valid?
+      flash[:notice] = "Map successfully updated"
       redirect_to map_path(current_map)
     else
       render :edit, status: :unprocessable_entity

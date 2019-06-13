@@ -72,3 +72,4 @@ gem 'fog-aws'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'rubocop-rails', require: false
+gem 'will_paginate', '~> 3.1.0'

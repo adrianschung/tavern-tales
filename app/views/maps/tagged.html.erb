@@ -1,7 +1,13 @@
 <br />
 <div class="container col-12 col-lg-6">
   <h3>Maps with '<%= params[:tag] %>'</h3>
+  <div class="digg_pagination">
+    <%= will_paginate @maps %>
+  </div>
   <% @maps.each do |map| %>
     <%= render partial: 'map', locals: { map: map } %>
   <% end %>
+  <div class="digg_pagination">
+    <%= will_paginate @maps %>
+  </div>
 </div>

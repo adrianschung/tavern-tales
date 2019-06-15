@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
   get 'search', to: 'search#search'
   get '/tagged', to: "maps#tagged", as: :tagged
-  resources :users, only: :show
+  resources :users, only: [:index, :show]
 end

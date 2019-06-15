@@ -3,7 +3,7 @@
 class MapsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   def index
-    @maps = Map.all
+    @maps = Map.paginate(page: params[:page], per_page: 10)
   end
 
   def show; end

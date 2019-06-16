@@ -13,7 +13,7 @@
                 by: <%= link_to map.user.username, user_path(map.user) %>
                 <br />
                 <% map.tag_list.first(3).each do |tag| %>
-                  <span class="badge badge-primary" style="background-color: #355940"><%= tag %></span>
+                  <span class="badge badge-primary tag"><%= tag %></span>
                 <% end %>
               </div>
               <div class="col-4">

@@ -57,6 +57,24 @@
   @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);  
 }
 
+.map-image {
+  width: 20%;
+  float: right;
+}
+
+.map-info {
+  float:left;
+  width:70%;
+}
+
+.map-header {
+  margin-bottom: 0px;
+}
+
 .map-thumb {
   margin: 5px 30px;
+}
+
+.tag {
+  background-color: #355940;
 }

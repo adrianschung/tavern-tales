@@ -1,9 +1,9 @@
 <div class="map-container">
-  <div class="map-info" style="float:left;width:70%">
-    <h4 style="margin-bottom: 0px"><%= link_to map.name, map_path(map) %></h4>
+  <div class="map-info">
+    <h4 class="map-header"><%= link_to map.name, map_path(map) %></h4>
     <% map.tag_list.each do |tag| %>
       <span>
-        <%= link_to tag, tagged_path(tag: tag), class:"badge badge-primary", style:"background-color: #355940" %>
+        <%= link_to tag, tagged_path(tag: tag), class:"badge badge-primary tag" %>
       </span>
     <% end %>
     <br />
@@ -13,7 +13,7 @@
       </p>
     </div>
   </div>
-  <div class="map-image" style="width:20%;float:right">
+  <div class="map-image">
     <%= image_tag map.picture.thumb.url, class:"map-thumb" %>
   </div>
 </div>
